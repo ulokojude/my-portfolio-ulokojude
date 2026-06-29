@@ -1,0 +1,100 @@
+/* About */
+#about {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p strong { color: var(--text); }
+
+.about-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-ring {
+  width: min(240px, 70vw);
+  height: min(240px, 70vw);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 60px var(--glow);
+}
+
+.avatar-inner {
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e1e2e, #2d1b69);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  overflow: hidden;
+}
+
+.avatar-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: none;
+}
+
+/* Skills */
+.skill-category {
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+}
+
+.skill-category-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.skill-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2;
+  cursor: default;
+}
+.skill-chip:hover { 
+  border-color: var(--accent); 
+  box-shadow: 0 0 16px var(--glow); 
+  color: var(--accent2); 
+}
+.skill-chip .icon { font-size: 1.6rem; display: block; margin-bottom: 0.4px; }
