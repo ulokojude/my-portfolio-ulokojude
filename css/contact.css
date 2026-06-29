@@ -83,6 +83,13 @@
   min-height: 1.2rem;
 }
 
-.form-feedback.success { color: #4ade80; }
-.form-feedback.error { color: #f87171; }
+.form-feedback.success { 
+  color: #4ade80;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+}
+
+.form-feedback.error { 
+  color: #f87171;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+}
 
