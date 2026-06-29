@@ -439,6 +439,124 @@ section { padding: 5rem clamp(1rem, 4vw, 5vw); }
   background: #f59e0b;
 }
 
+/* Education */
+#education {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+}
+
+.edu-card {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: border-color 0.25s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; 
+  bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+}
+
+.edu-card:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.edu-logo-wrap { flex-shrink: 0; }
+
+.edu-logo-placeholder {
+  width: 64px; height: 64px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex; align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.edu-logo-wrap img {
+  width: 64px; height: 64px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  padding: 6px;
+  border: 1px solid var(--border);
+}
+
+.edu-body { flex: 1; }
+
+.edu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.edu-institution {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .2rem;
+}
+
+.edu-course {
+  font-size: 0.9rem;
+  color: var(--accent2);
+  font-weight: 500;
+}
+
+.edu-years {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.edu-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.edu-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.edu-link:hover {
+  color: var(--white);
+}
+
+/* Contact */
 #contact { text-align: center; }
 
 .contact-card {
@@ -605,7 +723,7 @@ footer {
   }
 
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .contact-card {
