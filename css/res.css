@@ -114,11 +114,6 @@ footer {
     font-size: 1rem;
   }
 
-  .hero-cta {
-    width: 100%;
-    justify-content: center;
-  }
-
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
