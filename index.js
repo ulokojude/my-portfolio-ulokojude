@@ -1,10 +1,3 @@
-// emailjs config
-const EMAILJS_PUBLIC_KEY = "6-paw_rXiBfa7zGtm";
-const EMAILJS_SERVICE_ID = "service_v3u9s3t";
-const EMAILJS_TEMPPLATE_ID = "template_1xvmidc";
-
-emailjs.init(EMAILJS_PUBLIC_KEY);
-
 function sendMessage() {
   const whatsapp = document.getElementById('send-whatsapp').value.trim();
   const message = document.getElementById('send-message').value.trim();
@@ -31,29 +24,19 @@ function sendMessage() {
   btn.disabled = true;
   btnText.style.display = 'none';
   btnLoader.style.display = 'inline';
-  
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPPLATE_ID, {
-    from_whatsapp: whatsapp,
-    message: message,
-  }).then(() => {
-    feedback.className = 'form-feedback success';
-    feedback.textContent = 'Message sent! I\'ll reach out soon.';
 
-    // Opening whatsApp
-    const whatsApp = '2348161122861';
-    const waText = encodeURIComponent(
-      `Hi Jude, I\'m reaching out via your portfolio.\n\nMy WhatsApp: ${whatsApp}\n\nMessage: ${message}`
-    );
-    setTimeout(() => {
-      window.location.href = `whatsapp://send?phone=${whatsApp}&text=${waText}`;
-    }, 800);
-  }).catch((err) => {
-    console.err('EmailJS error:', err);
-    feedback.className = 'form-feedback error'
-    feedback.textContent = 'Something went wrong. Please try again.';
-  }).finally(() => {
+  feedback.className = 'form-feedback success';
+  feedback.textContent = 'Opening WhatsApp...';
+
+  // Opening whatsApp
+  const whatsApp = '2348161122861';
+  const waText = encodeURIComponent(
+    `Hi Jude, I\'m reaching out via your portfolio.\n\nMy WhatsApp: ${whatsApp}\n\nMessage: ${message}`
+  );
+  setTimeout(() => {
+    window.location.href = `whatsapp://send?phone=${whatsApp}&text=${waText}`;
     btn.disabled = false;
     btnText.style.display = 'inline';
     btnLoader.style.display = 'none';
-  });
+  }, 600);
 }
