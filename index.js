@@ -39,6 +39,4 @@ function sendMessage() {
     btnText.style.display = 'inline';
     btnLoader.style.display = 'none';
   }, 600);
-
-  feedback.textContent = '';
 }
