@@ -98,7 +98,7 @@ footer {
     padding: 0.9rem 1rem;
   }
 
-  .nav-lnks {
+  .nav-links {
     gap: 0.8rem;
   }
 
@@ -124,7 +124,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .nav-lnks {
+  .nav-links {
     width: 100%;
     justify-content: center;
   }
