@@ -38,8 +38,15 @@ function sendMessage() {
   }).then(() => {
     feedback.className = 'form-feedback success';
     feedback.textContent = 'Message sent! I\'ll reach out soon.';
-    document.getElementById('send-whatsapp').value = '';
-    document.getElementById('send-message').value = '';
+
+    // Opening whatsApp
+    const whatsApp = '2348161122861';
+    const waText = encodeURIComponent(
+      `Hi Jude, I\'m reaching out via your portfolio.\n\nMy WhatsApp: ${whatsApp}\n\nMessage: ${message}`
+    );
+    setTimeout(() => {
+      window.open(`https://wa.me/${whatsApp}?text=${waText}`,'_blank');
+    }, 800);
   }).catch((err) => {
     console.err('EmailJS error:', err);
     feedback.textContent = 'Something went wrong. Please try again.';
