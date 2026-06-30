@@ -45,10 +45,11 @@ function sendMessage() {
       `Hi Jude, I\'m reaching out via your portfolio.\n\nMy WhatsApp: ${whatsApp}\n\nMessage: ${message}`
     );
     setTimeout(() => {
-      window.open(`https://wa.me/${whatsApp}?text=${waText}`,'_blank');
+      window.location.href = `whatsapp://send?phone=${whatsApp}&text=${waText}`;
     }, 800);
   }).catch((err) => {
     console.err('EmailJS error:', err);
+    feedback.className = 'form-feedback error'
     feedback.textContent = 'Something went wrong. Please try again.';
   }).finally(() => {
     btn.disabled = false;
