@@ -34,7 +34,7 @@ function sendMessage() {
     `Hi Jude, I\'m reaching out via your portfolio.\n\nMy WhatsApp: ${whatsApp}\n\nMessage: ${message}`
   );
   setTimeout(() => {
-    window.location.href = `whatsapp://send?phone=${whatsApp}&text=${waText}`;
+    window.location.href = `https://api.whatsapp.com/send?phone=${whatsApp}&text=${waText}`;
     btn.disabled = false;
     btnText.style.display = 'inline';
     btnLoader.style.display = 'none';
