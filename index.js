@@ -135,3 +135,17 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 revealSections.forEach(section => revealObserver.observe(section));
+
+(function sendVisit(){
+  const URL = 'APPS_SCRIPT_URL';
+  const TOKEN = 'YOUR_SECRET_TOKEN';
+  fetch(URL, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      token: TOKEN,
+      path: location.pathname + location.search,
+      ua: navigator.userAgent
+    })
+  }).catch(()=>{ /* ignore logging failures */ });
+})();
