@@ -90,25 +90,13 @@ if (navToggle && nav) {
 
 const revealSections = document.querySelectorAll('section');
 
-revealSections.forEach((section, index) => {
-  const delay = Math.min(index * 0.08, 0.3);
-  section.style.setProperty('--reveal-delay', `${delay}s`);
-});
-
-const mobileObserverOptions = {
-  threshold: 0.05,
-  rootMargin: '0px 0px -60% 0px',
-};
-
-const desktopObserverOptions = {
-  threshold: 0.05,
-  rootMargin: '0px 0px -30% 0px',
-};
-
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     entry.target.classList.toggle('reveal-visible', entry.isIntersecting);
   });
-}, window.matchMedia('(max-width: 720px)').matches ? mobileObserverOptions : desktopObserverOptions);
+}, {
+  threshold: 0.05,
+  rootMargin: '0px 0px -30% 0px',
+});
 
 revealSections.forEach(section => revealObserver.observe(section));
