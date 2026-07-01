@@ -44,15 +44,12 @@ img {
 section {
   padding: 5rem clamp(1rem, 4vw, 5vw);
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
-              transform 1s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
-  will-change: opacity, transform;
+  transition: opacity 0.9s ease var(--reveal-delay, 0s);
+  will-change: opacity;
 }
 
 section.reveal-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .section-label {
@@ -163,13 +160,13 @@ footer {
 }
 
 /* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .hero-content > * {
-  animation: fadeUp 0.7s ease both;
+  animation: fadeIn 0.8s ease both;
 }
 
 .hero-eyebrow { animation-delay: 0.1s; }
