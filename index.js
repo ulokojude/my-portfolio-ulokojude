@@ -57,7 +57,7 @@ function sendMessage() {
     btn.disabled = false;
     btnText.style.display = 'inline';
     btnLoader.style.display = 'none';
-  }, 600);
+  }, 1200);
 }
 
 const scrollToggle = document.getElementById('scroll-toggle');
