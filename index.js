@@ -6,18 +6,38 @@ function sendMessage() {
   const btnText = document.getElementById('btn-text');
   const btnLoader = document.getElementById('btn-loader');
 
+  const showAlert = (message, type) => {
+    feedback.innerHTML = '';
+    feedback.className = `form-feedback alert alert-dismissible alert-${type}`;
+    feedback.textContent = message;
+
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'btn-close';
+    closeButton.setAttribute('aria-label', 'Dismiss');
+    closeButton.innerHTML = `
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+        <path d="M4.5 4.5l7 7m0-7l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    `;
+    closeButton.addEventListener('click', () => {
+      feedback.className = 'form-feedback';
+      feedback.textContent = '';
+    });
+
+    feedback.appendChild(closeButton);
+  };
+
   feedback.className = 'form-feedback';
   feedback.textContent = '';
 
   if (!whatsapp) {
-    feedback.className = 'form-feedback error';
-    feedback.textContent = 'Please enter your WhatsApp number';
+    showAlert('Please enter your WhatsApp number', 'warning');
     return;
   }
 
-  if(!message) {
-    feedback.className = 'form-feedback error';
-    feedback.textContent = 'Please write a message';
+  if (!message) {
+    showAlert('Please write a message', 'warning');
     return;
   }
 
@@ -25,8 +45,7 @@ function sendMessage() {
   btnText.style.display = 'none';
   btnLoader.style.display = 'inline';
 
-  feedback.className = 'form-feedback success';
-  feedback.textContent = 'Opening WhatsApp...';
+  showAlert('Message sent successfully. Opening WhatsApp...', 'success');
 
   // Opening whatsApp
   const whatsApp = '2348161122861';
