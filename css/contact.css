@@ -97,21 +97,22 @@
 .alert {
   position: relative;
   padding: 1rem 1rem;
+  margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: .375rem;
 }
 
 .alert-success {
-  background-color: #023d1e83;
-  color: white;
-  border-color: #a7f3d0;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border-color: #badbcc;
   font-weight: 600;
 }
 
 .alert-warning {
-  background-color: #6d3c04;
-  color: white;
-  border-color: #fde68a;
+  background-color: #fff3cd;
+  color: #664d03;
+  border-color: #ffecb5;
   font-weight: 600;
 }
 
@@ -125,7 +126,18 @@
   right: 0.75rem;
   width: 1.25rem;
   height: 1.25rem;
+  padding: 0;
   border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  opacity: 0.75;
+  outline: none;
+  
   background: transparent;
   cursor: pointer;
   opacity: 0.5;
