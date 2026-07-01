@@ -40,3 +40,21 @@ function sendMessage() {
     btnLoader.style.display = 'none';
   }, 600);
 }
+
+const revealSections = document.querySelectorAll('section');
+
+revealSections.forEach((section, index) => {
+  const delay = Math.min(index * 0.08, 0.3);
+  section.style.setProperty('--reveal-delay', `${delay}s`);
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('reveal-visible', entry.isIntersecting);
+  });
+}, {
+  threshold: 0.18,
+  rootMargin: '0px 0px -12% 0px',
+});
+
+revealSections.forEach(section => revealObserver.observe(section));

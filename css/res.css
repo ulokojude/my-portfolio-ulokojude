@@ -39,7 +39,19 @@ img {
 
 
 /* SECTION */
-section { padding: 5rem clamp(1rem, 4vw, 5vw); }
+section {
+  padding: 5rem clamp(1rem, 4vw, 5vw);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+section.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .section-label {
   font-family: var(--font-display);
