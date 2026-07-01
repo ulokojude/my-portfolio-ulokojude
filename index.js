@@ -41,27 +41,35 @@ function sendMessage() {
   }, 600);
 }
 
-const themeToggle = document.getElementById('theme-toggle');
-const userTheme = localStorage.getItem('site-theme');
-const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const scrollToggle = document.getElementById('scroll-toggle');
 
-const setTheme = (theme) => {
-  document.body.classList.toggle('light-theme', theme === 'light');
-  document.body.classList.toggle('dark-theme', theme === 'dark');
-  localStorage.setItem('site-theme', theme);
-  if (themeToggle) {
-    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+const updateScrollButton = () => {
+  if (!scrollToggle) return;
+  const halfway = window.innerHeight / 2;
+  const pastHalfway = window.pageYOffset > halfway;
+  if (pastHalfway) {
+    scrollToggle.classList.add('scroll-up');
+    scrollToggle.setAttribute('aria-label', 'Scroll to top');
+  } else {
+    scrollToggle.classList.remove('scroll-up');
+    scrollToggle.setAttribute('aria-label', 'Scroll to bottom');
   }
 };
 
-setTheme(userTheme || (systemPrefersDark ? 'dark' : 'light'));
-
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const nextTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
-    setTheme(nextTheme);
+if (scrollToggle) {
+  scrollToggle.addEventListener('click', () => {
+    const halfway = window.innerHeight / 2;
+    if (window.scrollY > halfway) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
   });
 }
+
+window.addEventListener('scroll', updateScrollButton);
+window.addEventListener('resize', updateScrollButton);
+updateScrollButton();
 
 const navToggle = document.getElementById('nav-toggle');
 const nav = document.querySelector('nav');
