@@ -272,6 +272,7 @@ nav {
 .hero-name span {
   background: linear-gradient(135deg, var(--accent2), #c4b5fd);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
