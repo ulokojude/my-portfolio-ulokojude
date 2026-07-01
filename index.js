@@ -50,7 +50,6 @@ const setTheme = (theme) => {
   document.body.classList.toggle('dark-theme', theme === 'dark');
   localStorage.setItem('site-theme', theme);
   if (themeToggle) {
-    themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
     themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
   }
 };
@@ -88,13 +87,20 @@ revealSections.forEach((section, index) => {
   section.style.setProperty('--reveal-delay', `${delay}s`);
 });
 
+const mobileObserverOptions = {
+  threshold: 0.05,
+  rootMargin: '0px 0px -60% 0px',
+};
+
+const desktopObserverOptions = {
+  threshold: 0.05,
+  rootMargin: '0px 0px -30% 0px',
+};
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     entry.target.classList.toggle('reveal-visible', entry.isIntersecting);
   });
-}, {
-  threshold: 0.18,
-  rootMargin: '0px 0px -12% 0px',
-});
+}, window.matchMedia('(max-width: 720px)').matches ? mobileObserverOptions : desktopObserverOptions);
 
 revealSections.forEach(section => revealObserver.observe(section));
