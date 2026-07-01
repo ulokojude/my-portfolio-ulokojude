@@ -41,6 +41,29 @@ function sendMessage() {
   }, 600);
 }
 
+const themeToggle = document.getElementById('theme-toggle');
+const userTheme = localStorage.getItem('site-theme');
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const setTheme = (theme) => {
+  document.body.classList.toggle('light-theme', theme === 'light');
+  document.body.classList.toggle('dark-theme', theme === 'dark');
+  localStorage.setItem('site-theme', theme);
+  if (themeToggle) {
+    themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+  }
+};
+
+setTheme(userTheme || (systemPrefersDark ? 'dark' : 'light'));
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+    setTheme(nextTheme);
+  });
+}
+
 const revealSections = document.querySelectorAll('section');
 
 revealSections.forEach((section, index) => {

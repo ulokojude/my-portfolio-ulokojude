@@ -14,8 +14,24 @@
   --text: #e2e2f0;
   --muted: #7878a0;
   --white: #ffffff;
+  --nav-bg-rgb: 10, 10, 15;
+  --hero-bg: rgba(124, 58, 237, 0.15);
   --font-display: 'Space Mono', monospace;
   --font-body: 'Space Grotesk', sans-serif;
+}
+
+body.light-theme {
+  --bg: #fdfcf9;
+  --surface: #ffffff;
+  --border: #e6e2dc;
+  --accent: #4f46e5;
+  --accent2: #8b5cf6;
+  --glow: rgba(139, 92, 246, 0.15);
+  --text: #1f2937;
+  --muted: #505050;
+  --white: #111827;
+  --nav-bg-rgb: 255, 255, 255;
+  --hero-bg: rgba(79, 70, 229, 0.08);
 }
 
 html {

@@ -7,7 +7,7 @@ nav {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 3vw, 2.5rem);
-  background: rgb(10, 10, 15, 0.85);
+  background: rgba(var(--nav-bg-rgb), 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -39,6 +39,28 @@ nav {
 
 .nav-links a:hover {
   color: var(--white);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: rgba(var(--nav-bg-rgb), 0.95);
+  border-color: var(--accent);
+  transform: translateY(-1px);
 }
 
 /* HERO */
