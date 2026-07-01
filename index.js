@@ -64,6 +64,23 @@ if (themeToggle) {
   });
 }
 
+const navToggle = document.getElementById('nav-toggle');
+const nav = document.querySelector('nav');
+
+if (navToggle && nav) {
+  navToggle.addEventListener('click', () => {
+    const expanded = nav.classList.toggle('nav-expanded');
+    navToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-expanded');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 const revealSections = document.querySelectorAll('section');
 
 revealSections.forEach((section, index) => {
