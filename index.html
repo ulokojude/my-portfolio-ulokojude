@@ -94,14 +94,14 @@
             Whether it's crafting pixel-perfect UIs 
             with React, building scalable APIs with 
             Node.js and PHP, or wiring up databases 
-            with MongoDB and SQL - I'm confortable 
+            with MongoDB and SQL - I'm comfortable 
             across the entire stack.
           </p>
           <p>
             I also build mobile apps with
             <strong>React Native</strong> and
             <strong>Flutter</strong>, so my skills
-            extends beyond the browser.
+            extend beyond the browser.
           </p>
           
         </div>
@@ -161,7 +161,7 @@
       </div>
     </section>
 
-    <!-- PROJECS -->
+    <!-- PROJECTS -->
     <section id="projects">
       <p class="section-label">// What I've built</p>
       <h2 class="section-title">Projects</h2>
@@ -169,10 +169,10 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <p class="project-type">E-Comerce</p>
+          <p class="project-type">E-Commerce</p>
           <h3 class="project-title">Online Shopping Platform</h3>
           <p class="project-desc">
-            A full-featured e-comerce web application with
+            A full-featured e-commerce web application with
             product listings, a shopping cart, and a checkout
             flow. Built with a focus on clean UI and smooth user
             experience.
@@ -190,7 +190,7 @@
           <p class="project-type">Coming Soon</p>
           <h3 class="project-title">Your Next Project</h3>
           <p class="project-desc">
-            Got an idea? I'm always open to exiting
+            Got an idea? I'm always open to exciting
             new challenges - whether it's a web app,
             a mobile solution, or a backend system.
           </p>
@@ -226,14 +226,14 @@
               <span class="edu-years">2025 - 2026</span>
             </div>
             <p class="edu-desc">
-              Got all the bsic foundational knowledge of
+              Gained strong foundational knowledge in
               <strong>HTML</strong>, 
               <strong>CSS</strong>,
-              <strong>Javascript</strong>, 
-              <strong>Bootstrap</strong> , and I also 
-              got a deep guide to the pratical use of
+              <strong>JavaScript</strong>, 
+              <strong>Bootstrap</strong>, and also
+              practical experience with
               <strong>PHP</strong>
-              and <strong>SQL</strong>
+              and <strong>SQL</strong>.
             </p>
             <a href="https://www.globaltechsworld.net/aboutus.html" class="edu-link" target="_blank">
               <svg xmlns="https://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -263,26 +263,24 @@
           get back to you on WhatsApp.
         </p>
 
-        <div class="form-group">
-          <label class="form-label">Your WhatsApp Number</label>
-          <input type="tel" id="send-whatsapp" class="form-input" placeholder="+234 800 000 0000">
-        </div>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="send-whatsapp" class="form-label">Your WhatsApp Number</label>
+            <input type="tel" id="send-whatsapp" name="send-whatsapp" class="form-input" placeholder="+234 800 000 0000" required>
+          </div>
 
-        <div class="form-group">
-          <label class="form-label">Your Message</label>
-          <textarea 
-            name="" 
-            id="send-message" 
-            class="form-textarea" 
-            placeholder="Tell me about your project or idea..."></textarea>
-        </div>
+          <div class="form-group">
+            <label for="send-message" class="form-label">Your Message</label>
+            <textarea id="send-message" name="send-message" class="form-textarea" placeholder="Tell me about your project or idea..." required></textarea>
+          </div>
 
-        <button class="send-btn" onclick="sendMessage()">
-          <span id="btn-text">Send Message</span>
-          <span id="btn-loader" style="display: none;">Sending...</span>
-        </button>
+          <button class="send-btn" type="submit">
+            <span id="btn-text">Send Message</span>
+            <span id="btn-loader" style="display: none;">Sending...</span>
+          </button>
+        </form>
 
-        <p id="form-feedback" class="form-feedback"></p>
+        <p id="form-feedback" class="form-feedback" aria-live="polite"></p>
       </div>
     </section>
     <footer>

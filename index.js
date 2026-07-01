@@ -1,4 +1,8 @@
-function sendMessage() {
+function sendMessage(event) {
+  if (event) {
+    event.preventDefault();
+  }
+
   const whatsapp = document.getElementById('send-whatsapp').value.trim();
   const message = document.getElementById('send-message').value.trim();
   const feedback = document.getElementById('form-feedback');
@@ -60,7 +64,19 @@ function sendMessage() {
   }, 1200);
 }
 
+const contactForm = document.getElementById('contact-form');
 const scrollToggle = document.getElementById('scroll-toggle');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', sendMessage);
+
+  contactForm.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && event.target.tagName !== 'TEXTAREA') {
+      event.preventDefault();
+      contactForm.requestSubmit();
+    }
+  });
+}
 
 const updateScrollButton = () => {
   if (!scrollToggle) return;
