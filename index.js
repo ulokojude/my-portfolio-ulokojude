@@ -35,13 +35,13 @@ function sendMessage(event) {
   feedback.className = 'form-feedback';
   feedback.textContent = '';
 
-  if (!whatsapp) {
-    showAlert('Please enter your WhatsApp number', 'warning');
+  if (!message && !whatsapp) {
+    showAlert('Please enter required information', 'warning');
     return;
   }
 
-  if (!message) {
-    showAlert('Please write a message', 'warning');
+  if (!message || !whatsapp) {
+    showAlert('Please complete the required informations', 'warning');
     return;
   }
 
