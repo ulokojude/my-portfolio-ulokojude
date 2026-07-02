@@ -1,17 +1,25 @@
-addEventListener('DOMContentLoaded', () => {
-  (function sendVisit(){
+window.addEventListener('DOMContentLoaded', async () => {
+  (async function sendVisit(){
     const URL = 'https://script.google.com/macros/s/AKfycbzdjRZndRYfH8VEk176WzxG2wQJXNo2yLOK0QMHIBGMdFDUpYvkJ8zrYk4n8kwefu6RZA/exec';
     const TOKEN = 'fdfjgf)R#EO965IJFF@!#vod#47834';
     
+    let userIp = 'Unknown';
+    try {
+      // Fetch the visitor's public IP address
+      const ipRes = await fetch('https://api.ipify.org?format=json');
+      const ipData = await ipRes.json();
+      userIp = ipData.ip;
+    } catch (e) {
+      /* If an adblocker blocks the IP API, it falls back gracefully */
+    }
+    
     fetch(URL, {
       method: 'POST',
-      // Note: We remove the 'application/json' header. 
-      // Google Apps Script prefers text/plain or no content-type headers 
-      // when handling requests from external website browsers to avoid CORS pre-flight blocks.
       body: JSON.stringify({
         token: TOKEN,
         path: window.location.pathname + window.location.search,
-        ua: window.navigator.userAgent
+        ua: window.navigator.userAgent,
+        ip: userIp // <--- Sends the IP address to your Google Script
       })
     })
     .then(res => res.json())
