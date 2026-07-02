@@ -43,6 +43,10 @@ nav {
 
 .nav-toggle {
   display: none;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
   border: none;
   background: transparent;
   cursor: pointer;
@@ -51,13 +55,16 @@ nav {
   padding: 0;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 0.28rem;
+  z-index: 101;
 }
 
 .nav-toggle-line {
   display: block;
   width: 24px;
   height: 2px;
-  margin: 4px 0;
+  margin: 0;
   background: var(--text);
   border-radius: 999px;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -76,11 +83,12 @@ nav {
 }
 
 .scroll-toggle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 3.2rem;
   height: 3.2rem;
+  margin: 2rem auto 0;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -91,6 +99,15 @@ nav {
   outline: none;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   position: relative;
+}
+
+.scroll-toggle i {
+  color: #f5f5ff;
+  font-size: 1.15rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .scroll-toggle svg {

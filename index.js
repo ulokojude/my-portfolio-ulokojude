@@ -78,33 +78,12 @@ if (contactForm) {
   });
 }
 
-const updateScrollButton = () => {
-  if (!scrollToggle) return;
-  const halfway = window.innerHeight / 2;
-  const pastHalfway = window.pageYOffset > halfway;
-  if (pastHalfway) {
-    scrollToggle.classList.add('scroll-up');
-    scrollToggle.setAttribute('aria-label', 'Scroll to top');
-  } else {
-    scrollToggle.classList.remove('scroll-up');
-    scrollToggle.setAttribute('aria-label', 'Scroll to bottom');
-  }
-};
-
 if (scrollToggle) {
   scrollToggle.addEventListener('click', () => {
-    const halfway = window.innerHeight / 2;
-    if (window.scrollY > halfway) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+  scrollToggle.setAttribute('aria-label', 'Scroll to top');
 }
-
-window.addEventListener('scroll', updateScrollButton);
-window.addEventListener('resize', updateScrollButton);
-updateScrollButton();
 
 const navToggle = document.getElementById('nav-toggle');
 const nav = document.querySelector('nav');
