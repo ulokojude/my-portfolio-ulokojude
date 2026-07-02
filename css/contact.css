@@ -89,7 +89,7 @@
   font-size: 0.88rem;
   text-align: center;
   min-height: 1.2rem;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -102,6 +102,10 @@
   max-width: 100%;
   position: relative;
   z-index: 2;
+}
+
+.form-feedback:empty {
+  display: none;
 }
 
 .form-feedback.success {
