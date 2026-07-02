@@ -81,7 +81,7 @@ function sendMessage(event) {
   // Opening whatsApp
   const whatsApp = '2348161122861';
   const waText = encodeURIComponent(
-    `Hi Jude, I\'m reaching out via your portfolio.\n\nMy WhatsApp: ${whatsApp}\n\nMessage: ${message}`
+    `Hi Jude, I\'m reaching out via your portfolio.\n\nMessage: ${message}`
   );
   setTimeout(() => {
     window.location.href = `https://api.whatsapp.com/send?phone=${whatsApp}&text=${waText}`;
