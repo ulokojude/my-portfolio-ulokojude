@@ -249,11 +249,14 @@
       <h2 class="section-title">Get In Touch</h2>
       <div class="divide" style="margin: 0 auto 2rem;"></div>
       <div class="contact-card">
-        <p>
-          Have a project or idea?
-          Drop a message and I'll
-          get back to you on WhatsApp.
-        </p>
+        <div class="contact-intro-wrap">
+          <p>
+            Have a project or idea?
+            Drop a message and I'll
+            get back to you on WhatsApp.
+          </p>
+          <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+        </div>
 
         <form id="contact-form" class="contact-form" novalidate>
           <div class="form-group">
@@ -272,7 +275,6 @@
           </button>
         </form>
 
-        <p id="form-feedback" class="form-feedback" aria-live="polite"></p>
         <button id="scroll-toggle" class="scroll-toggle" type="button" aria-label="Scroll to top">
           <span aria-hidden="true">↑</span>
         </button>

@@ -13,7 +13,6 @@
   text-align: center;
 }
 
-.contact-card > p { color: var(--muted); margin-bottom: 2rem; }
 .form-group { margin-bottom: 1.5rem; }
 .form-label {
   display: block;
@@ -76,43 +75,68 @@
   transform: none;
 }
 
+.contact-intro-wrap {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.contact-intro-wrap p {
+  color: var(--muted); margin-bottom: 2rem;
+}
+
 .form-feedback {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-size: 0.88rem;
   text-align: center;
   min-height: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+  color: var(--text);
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
-.form-feedback.success { 
-  color: #4ade80;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+.form-feedback.success {
+  color: #bbf7d0;
+  border-color: rgba(74, 222, 128, 0.35);
 }
 
-.form-feedback.error { 
-  color: #f87171;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+.form-feedback.error {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.35);
 }
-
 
 .alert {
   position: relative;
-  padding: 1rem 1rem;
-  margin-bottom: 1rem;
+  padding: 0.8rem 2.8rem 0.8rem 0.95rem;
+  margin-bottom: 0;
   border: 1px solid transparent;
-  border-radius: .375rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
 }
 
 .alert-success {
-  background-color: #d1e7dd;
-  color: #0f5132;
-  border-color: #badbcc;
+  background: rgba(20, 83, 45, 0.95);
+  color: #ecfdf5;
+  border-color: rgba(74, 222, 128, 0.35);
   font-weight: 600;
 }
 
 .alert-warning {
-  background-color: #fff3cd;
-  color: #664d03;
-  border-color: #ffecb5;
+  background: rgba(120, 53, 15, 0.95);
+  color: #fffbeb;
+  border-color: rgba(251, 191, 36, 0.35);
   font-weight: 600;
 }
 
@@ -122,23 +146,20 @@
 
 .btn-close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  top: 0.6rem;
+  right: 0.7rem;
+  width: 1.2rem;
+  height: 1.2rem;
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.8;
+  color: inherit;
 }
 
 .btn-close:hover,
 .btn-close:focus {
-  opacity: 0.75;
+  opacity: 1;
   outline: none;
-  
-  background: transparent;
-  cursor: pointer;
-  opacity: 0.5;
 }
