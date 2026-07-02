@@ -143,8 +143,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealSections.forEach(section => revealObserver.observe(section));
 
 (function sendVisit(){
-  const URL = 'APPS_SCRIPT_URL';
-  const TOKEN = 'YOUR_SECRET_TOKEN';
+  const URL = 'https://script.google.com/macros/s/AKfycbzdjRZndRYfH8VEk176WzxG2wQJXNo2yLOK0QMHIBGMdFDUpYvkJ8zrYk4n8kwefu6RZA/exec';
+  const TOKEN = 'fdfjgf)R#EO965IJFF@!#vod#47834';
   fetch(URL, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
