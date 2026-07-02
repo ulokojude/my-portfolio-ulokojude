@@ -101,13 +101,14 @@ nav {
   position: relative;
 }
 
-.scroll-toggle i {
+.scroll-toggle span {
   color: #f5f5ff;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
 }
 
 .scroll-toggle svg {
