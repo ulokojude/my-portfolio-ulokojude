@@ -15,6 +15,33 @@ function sendMessage(event) {
     feedback.className = `form-feedback alert alert-dismissible alert-${type}`;
     feedback.textContent = message;
 
+    const inputs = [document.getElementById('send-whatsapp'), document.getElementById('send-message')];
+    inputs.forEach(input => {
+      if (!input) return;
+      input.classList.remove('warning-shake', 'success-glow');
+      void input.offsetWidth;
+      if (type === 'warning') {
+        input.classList.add('warning-shake');
+      } else if (type === 'success') {
+        input.classList.add('success-glow');
+      }
+    });
+
+    if (type === 'success' || type === 'warning') {
+      window.clearTimeout(showAlert.timeoutId);
+      showAlert.timeoutId = window.setTimeout(() => {
+        feedback.className = 'form-feedback';
+        feedback.textContent = '';
+      }, 5000);
+    }
+
+    if (type === 'success') {
+      const inputs = [document.getElementById('send-whatsapp'), document.getElementById('send-message')];
+      inputs.forEach(input => {
+        if (input) input.value = '';
+      });
+    }
+
     const closeButton = document.createElement('button');
     closeButton.type = 'button';
     closeButton.className = 'btn-close';
